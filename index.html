@@ -3,33 +3,47 @@
   <head>
     <meta charset="UTF-8">
     <title>占い</title>
-    <link rel="stylesheet" type="text/css" href='main.css'>
-   
+    <link rel="stylesheet" href='style.css'>
+
   </head>
   <body>
     <div id="omikuji">
       <h1>おみくじ</h1>
       <p id="output">あなたの本日の運勢は…？</p>
-      <input type="button" id="btn" value="占う">
+      <button id="btn" type="click">占う</button>
     </div>
+    <div id="ret"></div>
     <script>
-    
+
     var luck = ["大凶","凶","末吉","小吉","中吉", "吉", "大吉"];
     var colors = ["赤","青","黄","緑","白","黒","金","銀","茶","紫"];
     var message, random_luck, random_color;
     var btn = document.getElementById("btn");
     var output = document.getElementById("output");
+    var ret = document.getElementById("ret");
+    var btn2 = document.getElementById("ret");
 
-    btn.addEventListener("click" ,function()
+      btn.addEventListener("click" ,function()
+      {
+        random_luck = luck[ Math.floor( Math.random() * luck.length ) ];
+        random_color = colors[ Math.floor( Math.random() * colors.length ) ];
+        message = "<h2>" + random_luck + "</h2>";
+        message += "<p>ラッキーカラーは " + random_color + "</p>";
+        output.innerHTML = message;
+        ret.innerHTML = '<button id = "btn2" type = "click">もう一回占う...?</button>';
+        btn.disabled = true;
+        btn.innerHTML = "良い一日を！";
+      });
+
+    btn2.addEventListener("click" ,function()
     {
-      random_luck = luck[ Math.floor( Math.random() * luck.length ) ];
-      random_color = colors[ Math.floor( Math.random() * colors.length ) ];
-
-      message = "<h2>" + random_luck + "</h2>";
-      message += "<p>ラッキーカラーは " + random_color + "</p>";
-      output.innerHTML = message;
+      output.innerHTML = "あなたの本日の運勢は…？"
+      ret.innerHTML = '';
+      btn.innerHTML = "占う";
+      btn.disabled = false;
+      
     });
-
   </script>
+
   </body>
 </html>
