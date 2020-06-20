@@ -4,7 +4,7 @@
   text-align: center;
   width: 294px;
   background-color: #EDA;
-  border: 3px double #990;
+  border: 3px solid #f00;
 }
 
 #omikuji > h1 {
@@ -35,6 +35,7 @@
 #omikuji > #btn {
   background: #740;
   border: 0;
+  border-radius: 15px;
   color: #FFF;
   cursor: pointer;
   font-size: 20px;
@@ -50,4 +51,15 @@
 
 #omikuji > #btn:active {
   background: #630;
+}
+#btn2
+{
+  background: #740;
+  border: 0;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: serif;
+  margin: 5px auto 20px auto;
+  padding: 5px 10px;
 }
